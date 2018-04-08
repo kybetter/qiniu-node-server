@@ -42,8 +42,7 @@ const uploadToken = () => {
     return token
   } catch (e) {
     // 没有缓存时生成缓存
-    const token = setToken()
-    return token
+    return setToken()
   }
 }
 

@@ -1,21 +1,18 @@
 const http = require('http')
-const fs = require('fs')
-const path = require('path')
 const url = require('url')
 const querystring = require('querystring')
-const util = require('util')
 const config = require('./config/config')
 const uploadToken = require('./components/token')
-const connection = require('./database/connect')
-
-const user = require('./database/user')
-
+if (config.mysql) {
+  const connection = require('./database/connect')
+  const user = require('./database/user')
+}
 
 
 // 简单开启一个服务来返回 token 数据
 const server = http.createServer((request, response) => {
-
   response.setHeader("Content-Type", "application/json")
+
   // 限定只能是 /token 路由才能进入
   const isCorrectRoute = /^\/?token\/?$/.test(url.parse(request.url).pathname)
 
@@ -25,6 +22,14 @@ const server = http.createServer((request, response) => {
       chunkData += chunk
     })
     request.on('end', () => {
+      if (config.mysql) {
+        response.end(JSON.stringify({
+          token: uploadToken(),
+          // post: postData,
+          // user: userData
+        }))
+        return;
+      }
       postData = querystring.parse(chunkData)
       if (!(postData.account && postData.password)) {
         response.end(JSON.stringify({
@@ -44,8 +49,8 @@ const server = http.createServer((request, response) => {
           if (userData) {
             response.end(JSON.stringify({
               token: uploadToken(),
-              post: postData,
-              user: userData
+              // post: postData,
+              // user: userData
             }))
           } else {
             response.end(JSON.stringify({
