@@ -1,4 +1,5 @@
 /config/config.js
+/cache/*
 yarn.lock
 .DS_Store
 node_modules/
