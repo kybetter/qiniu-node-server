@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "node index.js"
+    "dev": "node index.js",
+    "start": "node index.js",
+    "run": "nohub node index.js &"
   },
   "dependencies": {
     "mysql": "^2.15.0",
