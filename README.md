@@ -6,4 +6,6 @@
 #### 使用方法
 - 修改 `config`目录下的`config.js_`文件名修改为`config.js`
 - 将里面的配置修改成适合你的
-- 执行 `npm install 或 cnpm install 或 yarn`
+- 安装依赖，执行 `npm install 或 cnpm install 或 yarn`
+- 本地运行或开发，执行 `npm run dev 或 yarn start`
+- 线上运行，执行 `npm run prod 或 yarn prod`
