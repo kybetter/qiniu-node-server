@@ -9,3 +9,16 @@
 - 安装依赖，执行 `npm install 或 cnpm install 或 yarn`
 - 本地运行或开发，执行 `npm run dev 或 yarn start`
 - 线上运行，执行 `npm run prod 或 yarn prod`
+
+#### 简单用户验证
+如果需要用户验证，参考表字段如下：
+```sql
+CREATE TABLE `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `account` varchar(255) NOT NULL DEFAULT '',
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `sex` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
