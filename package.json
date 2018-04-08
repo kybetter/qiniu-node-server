@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "node index.js",
     "start": "node index.js",
-    "prod": "nohub node index.js &"
+    "prod": "nohup node index.js &"
   },
   "dependencies": {
     "mysql": "^2.15.0",
