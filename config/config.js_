@@ -1,0 +1,19 @@
+module.exports = {
+  // 七牛配置
+  accessKey: '从七牛获取的accessKey',
+  secretKey: '从七牛获取的secretKey',
+  bucket: '七牛项目名称',
+  // token 过期时间
+  expires: 7200,
+
+  // http config
+  domain: '127.0.0.1', // 修改成你的域名或ip
+  port: '8080', // 修改端口
+
+  // mysql 配置
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'database'
+
+}
