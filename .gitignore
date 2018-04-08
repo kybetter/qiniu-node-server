@@ -1,4 +1,5 @@
-/config/*.js
+/config/config.js
+yarn.lock
 .DS_Store
 node_modules/
 dist/
